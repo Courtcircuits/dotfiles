@@ -8,6 +8,5 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>pc", require("oil").open, { desc = "Open parent directory" })
 -- when in oil, cd .. with <C-Left>

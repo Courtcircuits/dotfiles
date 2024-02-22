@@ -11,15 +11,14 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     -- or                            , branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use('nvim-treesitter/nvim-treesitter', {run= ':tsupdate'})
+  use('nvim-treesitter/nvim-treesitter', { run = ':tsupdate' })
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
-  use('prettier/vim-prettier')
-  use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+  use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
   use {
     "microsoft/vscode-js-debug",
     opt = true,
@@ -27,14 +26,19 @@ return require('packer').startup(function(use)
   }
   use('ThePrimeagen/vim-be-good')
   use('nvim-tree/nvim-web-devicons')
-  use ({"akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup()
-  end})
-  use ({
-	"windwp/nvim-autopairs",
+  use({
+    "akinsho/toggleterm.nvim",
+    tag = '*',
+    config = function()
+      require("toggleterm").setup()
+    end
+  })
+  use({
+    "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   })
-  use ({'echasnovski/mini.nvim',
+  use({
+    'echasnovski/mini.nvim',
     config = function()
       require('mini.comment').setup()
     end
@@ -45,9 +49,10 @@ return require('packer').startup(function(use)
       require('nvim-ts-autotag').setup()
     end
   })
-  use({'rrethy/vim-hexokinase', run = 'make hexokinase'})
+  use({ 'rrethy/vim-hexokinase', run = 'make hexokinase' })
   -- install without yarn or npm
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use({
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -55,12 +60,10 @@ return require('packer').startup(function(use)
   use({
     'alexvzyl/nordic.nvim',
     as = 'nordic',
-    config = function ()
-      vim.cmd('colorscheme nordic')
-    end
   })
-  use({'nvim-tree/nvim-tree.lua',
-    requires = {'kyazdani42/nvim-web-devicons'}
+  use({
+    'nvim-tree/nvim-tree.lua',
+    requires = { 'kyazdani42/nvim-web-devicons' }
   })
   use({
     'stevearc/oil.nvim',
@@ -70,31 +73,47 @@ return require('packer').startup(function(use)
   })
   use("github/copilot.vim")
   use("lervag/vimtex")
+  use("hashivim/vim-terraform")
+  use({
+    "ray-x/go.nvim",
+    config = function()
+      require('go').setup()
+    end
+  })
+  use("ray-x/guihua.lua")
   use({
     'goolord/alpha-nvim',
     requires = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
+    config = function()
       require('alpha').setup(require('alpha.themes.startify').opts)
     end
   })
+  use({
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    config = function()
+      vim.cmd('colorscheme rose-pine')
+    end
+  })
+  use({ 'neovim/nvim-lspconfig' })
   use {
     'vonheikemen/lsp-zero.nvim',
     branch = 'v2.x',
     requires = {
       -- lsp support
-      {'neovim/nvim-lspconfig'},             -- required
-      {                                      -- optional
-      'williamboman/mason.nvim',
-      run = function()
-        pcall(vim.cmd, 'masonupdate')
-      end,
-    },
-    {'williamboman/mason-lspconfig.nvim'}, -- optional
+      { 'neovim/nvim-lspconfig' }, -- required
+      {                          -- optional
+        'williamboman/mason.nvim',
+        run = function()
+          pcall(vim.cmd, 'masonupdate')
+        end,
+      },
+      { 'williamboman/mason-lspconfig.nvim' }, -- optional
 
-    -- autocompletion
-    {'hrsh7th/nvim-cmp'},     -- required
-    {'hrsh7th/cmp-nvim-lsp'}, -- required
-    {'l3mon4d3/luasnip'},     -- required
+      -- autocompletion
+      { 'hrsh7th/nvim-cmp' }, -- required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- required
+      { 'l3mon4d3/luasnip' }, -- required
+    }
   }
-}
 end)
