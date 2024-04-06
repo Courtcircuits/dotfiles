@@ -60,4 +60,4 @@ function _PYTHON_TOGGLE()
   python:toggle()
 end
 
-map("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { noremap = true, silent = true })
