@@ -1,23 +1,15 @@
 {
   "layer": "top",
-  "modules-left": ["custom/launcher", "cpu", "memory", "custom/media", "tray"],
+  "modules-left": ["custom/launcher", "cpu", "memory", "tray"],
   "modules-center": ["river/tags", "hyprland/workspaces"],
   "modules-right": [
-    "custom/waybar-media",
+    "custom/media",
     "backlight",
+    "network",
     "pulseaudio",
     "battery",
     "clock",
   ],
-  "custom/waybar-media": {
-    "return-type": "json",
-    "exec": "~/.local/bin/mediaplayer.py status",
-    "on-click": "~/.local/bin/mediaplayer.py playpause",
-    "on-scroll-up": "~/.local/bin/mediaplayer.py previous",
-    "on-scroll-down": "~/.local/bin/mediaplayer.py next",
-    "escape": true,
-  },
-
   "pulseaudio": {
     "tooltip": false,
     "scroll-step": 5,
@@ -70,19 +62,10 @@
     "format": " {}%",
     "max-length": 10,
   },
-  // "custom/media": {
-  //   "interval": 30,
-  //   "format": "{icon} {}",
-  //   "return-type": "json",
-  //   "max-length": 20,
-  //   "format-icons": {
-  //     "spotify": " ",
-  //     "default": " ",
-  //   },
-  //   "escape": true,
-  //   "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
-  //   "on-click": "playerctl play-pause",
-  // },
+  "custom/media": {
+    "exec": "goplay",
+    "on-click": "playerctl play-pause",
+  },
   "custom/launcher": {
     "format": "󰨡",
     "on-click": "rofi -show drun",
