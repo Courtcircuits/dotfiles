@@ -1,26 +1,24 @@
 local lsp = require("lsp-zero")
 
-local lspconfig = require("lspconfig")
-local util = require("lspconfig/util")
+-- local lspconfig = require("lspconfig")
+-- local util = require("lspconfig/util")
 
-lspconfig.gopls.setup({
-	cmd = { "gopls", "serve" },
-	filetypes = { "go", "gomod" },
-	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-		},
-	},
-})
+-- lspconfig.gopls.setup({
+-- 	cmd = { "gopls", "serve" },
+-- 	filetypes = { "go", "gomod" },
+-- 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+-- 	settings = {
+-- 		gopls = {
+-- 			analyses = {
+-- 				unusedparams = true,
+-- 			},
+-- 			staticcheck = true,
+-- 		},
+-- 	},
+-- })
 
 vim.cmd([[let g:terraform_fmt_on_save=1]])
 vim.cmd([[let g:terraform_align=1]])
-
-local cmp = require("cmp")
 
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
