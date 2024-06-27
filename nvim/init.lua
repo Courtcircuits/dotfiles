@@ -3,3 +3,5 @@ if vim.loader then
 end
 
 require("config.lazy")
+require("config.keymaps")
+require("config.options")

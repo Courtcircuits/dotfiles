@@ -13,4 +13,12 @@ return {
 		ft = { "go", "gomod" },
 		build = ':lua require("go.install").update_all_sync()',
 	},
+	{
+		"pmizio/typescript-tools.nvim",
+		depedenencies = {
+			"nvim-lua/plenary.nvim",
+			"neovim/nvim-lspconfig",
+		},
+		opts = {},
+	},
 }
